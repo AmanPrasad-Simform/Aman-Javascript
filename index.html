@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Calculator</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="console row">
+        <input type="text" id="input" class="input operator" disabled />
+      </div>
+      <div class="row func">
+        <button class="button">DEG</button>
+        <button class="button">F-E</button>
+      </div>
+      <div class="row">
+        <button class="button">MC</button>
+        <button class="button">MR</button>
+        <button class="button">M+</button>
+        <button class="button">M-</button>
+        <button class="button">MS</button>
+      </div>
+      <div class="row trig">
+        <button class="trigno"><img src="img/tri.png">Trignometry</button>
+
+        <button class="trigno">&#119943 Function</button>
+      </div>
+      <div class="row">
+        <button class="button" id="power2">2nd</button>
+        <button class="button" id="pie">π</button>
+        <button class="button" id="e">e</button>
+        <button class="button" id="clear">C</button>
+        <button class="button" id="backspace">⌫</button>
+      </div>
+      <div class="row">
+        <button class="button" id="square">x²</button>
+        <button class="button" id="inverse">1/x</button>
+        <button class="button">|x|</button>
+        <button class="button">exp</button> 
+        <button class="button">mod</button>
+      </div>
+      <div class="row">
+        <button class="button" id="sqrt">√x</button>
+        <button class="button">(</button> 
+        <button class="button">)</button> 
+        <button class="button" id="factorial">n!</button>
+        <button class="button operator" id="divide">÷</button>
+      </div>
+      <div class="row">
+        <button class="button">
+          <span style="height: 10px" id="xpowery">x</span><sup>y</sup> </button>
+        <button class="button" id="7">7</button>
+        <button class="button" id="8">8</button>
+        <button class="button" id="9">9</button>
+        <button class="button operator" id="multiply">x</button>
+      </div>
+      <div class="row">
+        <button class="button" id="power10">10<sup id="power10">x</sup></button>
+        <button class="button" id="4">4</button>
+        <button class="button" id="5">5</button>
+        <button class="button" id="6">6</button>
+        <button class="button operator" id="subtract">-</button>
+      </div>
+      <div class="row">
+        <button class="button" id="log">log</button>
+        <button class="button" id="1">1</button>
+        <button class="button" id="2">2</button>
+        <button class="button" id="3">3</button>
+        <button class="button operator" id="add">+</button>
+      </div>
+      <div class="row">
+        <button class="button" id="ln">ln</button>
+        <button class="button operator">+/-</button>
+        <button class="button" id="0">0</button>
+        <button class="button" id="decimal">.</button>
+        <button class="button operator" id="equals">=</button>
+      </div>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>
