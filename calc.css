@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: rgb(242, 242, 242);
+    --secondary: rgb(247, 247, 248);
+    --number-grey: rgb(252, 252, 252);
+    --blue: rgb(145, 193, 231);
+    --button-active: rgb(221, 221, 221);
+}
+
+main {
+    background-color: var(--number-grey);
+}
+
+.container {
+    margin-top: 200px;
+    margin-left: 100px;
+    background-color: var(--primary);
+    height: fit-content;
+    padding: 5px;
+    width: fit-content;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    text-align: end;
+    width: 100%;
+    border: none;
+    height: 80px;
+    margin: 1px;
+    outline: none;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0 10px;
+    background-color: var(--primary);
+
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.func,
+.trigno {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.trigno > img{
+    height: 18px;
+}
+
+.trigno {
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 125px;
+    background-color: var(--secondary);
+    border: none;
+}
+
+.button {
+    margin: 1px;
+    height: 50px;
+    width: 80px;
+    background-color: var(--secondary);
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.button:active{
+    background-color: var(--button-active);
+}
+.number {
+    background-color: var(--number-grey);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.equal {
+    font-size: 30px;
+    background-color:var(--blue);
+}
