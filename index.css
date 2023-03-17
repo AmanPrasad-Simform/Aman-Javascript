@@ -13,11 +13,12 @@
 
 main {
     background-color: var(--number-grey);
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     margin-top: 200px;
-    margin-left: 100px;
     background-color: var(--primary);
     height: fit-content;
     padding: 5px;
