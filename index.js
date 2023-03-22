@@ -1,16 +1,16 @@
 const buttons = document.querySelectorAll("button");
-
 const display = document.getElementById("input");
 
 var data = {
   display: [],
   operator: []
 };
-
+var memory = "";
 
 Array.from(buttons).forEach((button) => {
   button.addEventListener("click", (e) => {
     console.log(e.target.id, "eeeeee");
+    
     if (e.target.id == "equals") {
       evaluate(e);
     }
@@ -47,7 +47,7 @@ radian.addEventListener("click", ()=>{
 const toggler = document.getElementById("toggler")
 const initialBtn = toggler.textContent;
 const newBtn = "inv";
-let togFlag = true
+var togFlag = true
 toggler.addEventListener("click", ()=>{
   if(togFlag == true){
     toggler.textContent = newBtn
@@ -58,6 +58,14 @@ toggler.addEventListener("click", ()=>{
     togFlag = true
   }
 })
+
+
+// const trignometry = document.querySelectorAll("div.dropdown-content button");
+// const inverseTrignometry = document.querySelectorAll("#inverseTrignometries");
+// if(togFlag === false){
+//   trignometry.style.backgroundColor = "red";
+//   // inverseTrignometry.style.display = "none";
+// }
 
 // Add event listeners to buttons
 function handleClickEvent(btn) {
@@ -134,16 +142,56 @@ function handleClickEvent(btn) {
       operator = `Number(${inputString}).toExponential()`;
       break;
 
+    case "MS":
+      console.log(data.display, data.operator, "in ms");
+      memory = data.display.join("");
+      emptyarray();
+      display.value = "";
+      break;
+    case "MR":
+      console.log(data.display, data.operator, "in mr");
+      data.operator.push(memory);
+      data.display.push(memory);
+      display.value = data.display.join("");
+      break;
+    case "MC":
+      console.log(data.display, data.operator, "in mc");
+      memory = "";
+      display.value = "";
+      break;
+    case "M+":
+      memory = Number(memory) + Number(eval(data.display.join("")));
+      display.value = "";
+      emptyarray();
+      break;
+    case "M-":
+      memory = Number(memory) - Number(eval(data.display.join("")));
+      display.value = "";
+      emptyarray();
+      break;
+
     case "sin":
       inputString = "sin(";
-      operator = "Math.asin("
+      if(rdFlag  == false){
+        operator = "Math.sin((Math.PI/180)*"
+      }
+      else
+      operator = "Math.sin("
       break
     case "cos":
       inputString = "cos(";
+      if(rdFlag  == false){
+        operator = "Math.cos((Math.PI/180)*"
+      }
+      else
       operator = "Math.cos("
       break
     case "tan":
       inputString = "tan(";
+      if(rdFlag  == false){
+        operator = "Math.tan((Math.PI/180)*"
+      }
+      else
       operator = "Math.tan("
       break
 
@@ -183,7 +231,8 @@ function handleClickEvent(btn) {
       break;
 
     case "absolute":
-      inputString = `abs(${inputString})`
+      inputString = "abs("
+      operator = "Math.abs(";
       break
 
     case "exp":
@@ -247,10 +296,8 @@ function handleClickEvent(btn) {
       break;
 
     case "plus_minus":
-      console.log(data.display, "1111111")
-      inputString = `${data.display.unshift("-")}`;
-      operator = `${data.operator.unshift("-")}`; // toggle
-      console.log(data.display, "222221")
+      inputString = "+/-";
+      operator = "*(-1)";
       break;
 
     default:
@@ -275,14 +322,7 @@ function evaluate() {
 }
 
 function backspace() {
-  // const display_string = data.display.toString()
-  // const operator_string = data.operator.toString()
-  // const display_array = display_string.split("")
-  // const operator_array = operator_string.split("")
-  // display_array.pop()
-  // operator_array.pop()
-  // data.display = display_array
-  // data.operator = operator_array
+
   data.display.pop()
   data.operator.pop()
   display.value = data.display.join("");
