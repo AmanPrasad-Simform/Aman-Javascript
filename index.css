@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+/* :root {
+    --primary: rgb(242, 242, 242);
+    --secondary: rgb(247, 247, 248);
+    --number-grey: rgb(252, 252, 252);
+    --blue: rgb(145, 193, 231);
+    --button-active: rgb(221, 221, 221);
+} */
 :root {
     --primary: rgb(242, 242, 242);
     --secondary: rgb(247, 247, 248);
@@ -10,7 +17,6 @@
     --blue: rgb(145, 193, 231);
     --button-active: rgb(221, 221, 221);
 }
-
 main {
     background-color: var(--number-grey);
     display: flex;
@@ -36,7 +42,7 @@ main {
     outline: none;
     font-size: 30px;
     font-weight: 600;
-    padding: 0 10px;
+    padding: 0px 8px;
     background-color: var(--primary);
 
 }
@@ -54,7 +60,7 @@ main {
     justify-content: flex-start;
 }
 
-.trigno > img{
+.wrapper > img{
     height: 18px;
 }
 
@@ -64,13 +70,12 @@ main {
     justify-content: center;
     align-items: center;
     height: 50px;
-    width: 125px;
-    background-color: var(--secondary);
+    /* width: 125px; */
+    background-color: var(--primary);
     border: none;
 }
-
 .button {
-    margin: 1px;
+    margin: 2px;
     height: 50px;
     width: 80px;
     background-color: var(--secondary);
@@ -79,16 +84,71 @@ main {
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
 }
+.headers {
+    margin: 2px;
+    height: 50px;
+    width: 80px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
 .button:active{
     background-color: var(--button-active);
 }
 .number {
-    background-color: var(--number-grey);
+    background-color:white;
     font-size: 20px;
     font-weight: 600;
 }
 
-.equal {
-    font-size: 30px;
+#equals {
+    font-size: 25px;
     background-color:var(--blue);
 }
+.hover-icon{
+    transform: rotate(-90deg);
+}
+.wrapper:hover .hover-icon{
+    transition: transform 0.30s ease-in-out;
+    transform: rotate(90deg);
+}
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 135px;
+}
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+  }
+  .trig{
+    display: flex;
+  }
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+   .dropdown-content button {
+    color: black;
+    font-size: 15px;
+    padding: 8px 5px;
+    text-decoration: none;
+    display: block;
+    min-width: 125px;
+    border: #f1f1f1;
+  } 
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content button:hover {
+    background-color: var(--button-active);
+  }

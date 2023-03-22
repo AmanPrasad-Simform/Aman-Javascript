@@ -14,26 +14,50 @@
   <main>
     <div class="container">
       <div class="console row">
-        <input readonly type="text" id="input" class="input operator" />
+        <input readonly type="text" id="input" class="input operator" placeholder="0" />
       </div>
       <div class="row func">
-        <button class="button">DEG</button>
-        <button class="button">F-E</button>
+        <button class="button headers" id="radian">RAD</button>
+        <button class="button headers" id="toExpo">F-E</button>
       </div>
       <div class="row">
-        <button class="button">MC</button>
-        <button class="button">MR</button>
-        <button class="button">M+</button>
-        <button class="button">M-</button>
-        <button class="button">MS</button>
+        <button class="button headers" style="color: #D3D3D3	;">MC</button>
+        <button class="button headers" style="color: #D3D3D3	;">MR</button>
+        <button class="button headers">M+</button>
+        <button class="button headers">M-</button>
+        <button class="button headers">MS</button>
       </div>
       <div class="row trig">
-        <button class="trigno"><img src="img/tri.png">Trignometry</button>
-
-        <button class="trigno">&#119943 Function</button>
+        <div class="dropdown">
+          <div class="wrapper"><img src="img/tri.png">
+            <button class="trigno">Trignometry</button>
+            <svg width="4.7" height="8" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="hover-icon">
+              <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z">
+              </path>
+            </svg></div>
+          <div class="dropdown-content">
+            <button class="trigno-operations" id="sin">sin</button>
+            <button class="trigno-operations" id="cos">cos</button>
+            <button class="trigno-operations" id="tan">tan</button>
+          </div>
+        </div>
+        <div class="dropdown">
+        <div class="wrapper">
+      <button class="trigno">&#119943 &nbsp; Function</button>
+      <svg width="4.7" height="8" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="hover-icon">
+        <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" >
+        </path>
+      </svg>
       </div>
+      <div class="dropdown-content">
+        <button class="functions" id="floor">floor</button>
+        <button class="functions" id="ceil">ceil</button>
+      </div>
+      </div>
+    </div>
+
       <div class="row">
-        <button class="button" id="power2">2nd</button>
+        <button class="button" id="toggler">2nd</button>
         <button class="button" id="pie">π</button>
         <button class="button" id="e">e</button>
         <button  class="button" id="clear">C</button>
@@ -56,30 +80,30 @@
       <div class="row">
         <button class="button" id="xpowery">
           <span style="height: 10px" id="xpowery">x</span><sup id="xpowery">y</sup> </button>
-        <button class="button" id="7">7</button>
-        <button class="button" id="8">8</button>
-        <button class="button" id="9">9</button>
+        <button class="number button" id="7">7</button>
+        <button class="number button" id="8">8</button>
+        <button class="number button" id="9">9</button>
         <button class="button operator" id="multiply">x</button>
       </div>
       <div class="row">
         <button class="button" id="power10">10<sup id="power10">x</sup></button>
-        <button class="button" id="4">4</button>
-        <button class="button" id="5">5</button>
-        <button class="button" id="6">6</button>
+        <button class="number button" id="4">4</button>
+        <button class="number button" id="5">5</button>
+        <button class="number button" id="6">6</button>
         <button class="button operator" id="subtract">-</button>
       </div>
       <div class="row">
         <button class="button" id="log">log</button>
-        <button class="button" id="1">1</button>
-        <button class="button" id="2">2</button>
-        <button class="button" id="3">3</button>
+        <button class="number button" id="1">1</button>
+        <button class="number button" id="2">2</button>
+        <button class="number button" id="3">3</button>
         <button class="button operator" id="add">+</button>
       </div>
       <div class="row">
         <button class="button" id="ln">ln</button>
-        <button class="button operator" id="plus_minus">+/-</button>
-        <button class="button" id="0">0</button>
-        <button class="button" id="decimal">.</button>
+        <button class="button number operator" id="plus_minus">+/-</button>
+        <button class="number button" id="0">0</button>
+        <button class="number button" id="decimal">.</button>
         <button class="button operator" id="equals">=</button>
       </div>
     </div>

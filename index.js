@@ -14,17 +14,51 @@ Array.from(buttons).forEach((button) => {
     if (e.target.id == "equals") {
       evaluate(e);
     }
-    else if(e.target.id == "backspace"){
+    else if (e.target.id == "backspace") {
       backspace(e);
     }
-    else if(e.target.id == "clear"){
+    else if (e.target.id == "clear") {
       allClear(e);
+    }
+    else if(e.target.id == "toExpo"){
+      toExpo(e)
     }
     else {
       handleClickEvent(e.target.id);
     }
   })
 });
+
+const radian = document.getElementById("radian")
+const initialText = radian.textContent;
+const newText = "DEG";
+let rdFlag = true
+radian.addEventListener("click", ()=>{
+  if(rdFlag == true){
+    radian.textContent = newText 
+    rdFlag = false
+  }
+  else{
+    radian.textContent = initialText
+    rdFlag = true
+  }
+});
+
+const toggler = document.getElementById("toggler")
+const initialBtn = toggler.textContent;
+const newBtn = "inv";
+let togFlag = true
+toggler.addEventListener("click", ()=>{
+  if(togFlag == true){
+    toggler.textContent = newBtn
+    togFlag = false
+  }
+  else{
+    toggler.textContent = initialBtn
+    togFlag = true
+  }
+})
+
 // Add event listeners to buttons
 function handleClickEvent(btn) {
   console.log("inhere", btn, "dca", inputString)
@@ -93,6 +127,36 @@ function handleClickEvent(btn) {
       inputString = "-";
       operator = "-";
       break;
+
+    case "toExpo":
+      toExpo(val)
+      inputString = "value";
+      operator = `Number(${inputString}).toExponential()`;
+      break;
+
+    case "sin":
+      inputString = "sin(";
+      operator = "Math.asin("
+      break
+    case "cos":
+      inputString = "cos(";
+      operator = "Math.cos("
+      break
+    case "tan":
+      inputString = "tan(";
+      operator = "Math.tan("
+      break
+
+    case "floor":
+      inputString = "floor(";
+      operator = "Math.floor("
+    break;
+
+    case "ceil":
+      inputString = "ceil(";
+      operator = "Math.ceil("
+    break;
+
     case "power2":
       inputString = "^2";
       operator = "**2"
@@ -174,7 +238,7 @@ function handleClickEvent(btn) {
 
     case "log":
       inputString = `log(${inputString}`;
-      operator = "*Math.log10("; //toggle if ... then ...
+      operator = "Math.log10("; //toggle if ... then ...
       break;
 
     case "ln":
@@ -183,10 +247,10 @@ function handleClickEvent(btn) {
       break;
 
     case "plus_minus":
-      console.log(data.display,"1111111")
+      console.log(data.display, "1111111")
       inputString = `${data.display.unshift("-")}`;
       operator = `${data.operator.unshift("-")}`; // toggle
-      console.log(data.display,"222221")
+      console.log(data.display, "222221")
       break;
 
     default:
@@ -211,12 +275,20 @@ function evaluate() {
 }
 
 function backspace() {
+  // const display_string = data.display.toString()
+  // const operator_string = data.operator.toString()
+  // const display_array = display_string.split("")
+  // const operator_array = operator_string.split("")
+  // display_array.pop()
+  // operator_array.pop()
+  // data.display = display_array
+  // data.operator = operator_array
   data.display.pop()
   data.operator.pop()
   display.value = data.display.join("");
 }
 
-function allClear() { 
+function allClear() {
   console.log("in clear"); // array 2 forming
   emptyarray();
   console.log(data.operator);
@@ -239,4 +311,12 @@ function fact(value) {
     value = value * i
   }
   return value
+}
+
+function toExpo() {
+const num = data.operator.join("")
+const value =  Number(num).toExponential();
+data.operator = [value]
+data.display = [value]
+display.value = value;
 }
