@@ -11,13 +11,12 @@
     --button-active: rgb(221, 221, 221);
 }
 main {
-    background-color: var(--number-grey);
     display: flex;
     justify-content: center;
 }
 
 .container {
-    margin-top: 200px;
+    margin: 10vh 0;
     background-color: var(--primary);
     height: fit-content;
     padding: 5px;
@@ -144,4 +143,15 @@ main {
 }
 .dropdown-content button:hover {
     background-color: var(--button-active);
+  }
+
+  @media screen and (max-width : 425px)  {
+    .button {
+        margin: 2px;
+        height: 50px;
+        width: 20%;
+    }
+    .container {
+        margin: 5vh 0;
+    }
   }
