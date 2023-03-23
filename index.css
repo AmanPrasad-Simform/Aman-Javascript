@@ -3,13 +3,6 @@
     padding: 0;
 }
 
-/* :root {
-    --primary: rgb(242, 242, 242);
-    --secondary: rgb(247, 247, 248);
-    --number-grey: rgb(252, 252, 252);
-    --blue: rgb(145, 193, 231);
-    --button-active: rgb(221, 221, 221);
-} */
 :root {
     --primary: rgb(242, 242, 242);
     --secondary: rgb(247, 247, 248);
@@ -70,7 +63,6 @@ main {
     justify-content: center;
     align-items: center;
     height: 50px;
-    /* width: 125px; */
     background-color: var(--primary);
     border: none;
 }
@@ -121,9 +113,11 @@ main {
     align-items: center;
     width: 135px;
 }
+#btnhandler button{
+    outline: none;
+}
 .dropdown {
     position: relative;
-    /* display: inline-block; */
   }
   .trig{
     display: flex;
@@ -141,7 +135,6 @@ main {
     font-size: 15px;
     padding: 8px 5px;
     text-decoration: none;
-    display: block;
     min-width: 125px;
     border: #f1f1f1;
   } 

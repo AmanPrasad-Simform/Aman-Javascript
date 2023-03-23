@@ -16,7 +16,7 @@
       <div class="console row">
         <input type="text" id="input" class="input operator" placeholder="0" />
       </div>
-      <div>
+      <div id="btnhandler" onclick="uiclick(event)">
         <div class="row func">
           <button class="button headers" id="radian">RAD</button>
           <button class="button headers" id="toExpo">F-E</button>
@@ -41,11 +41,11 @@
               <button class="trigno-operations" id="cos">cos</button>
               <button class="trigno-operations" id="tan">tan</button>
             </div>
-            <!-- <div class="dropdown-content"  id="inverseTrignometries">
+            <div class="dropdown-content" style="visibility: hidden;" id="inverseTrignometries">
               <button class="trigno-operations" id="sin-1">sin-1</button>
               <button class="trigno-operations" id="cos-1">cos-1</button>
               <button class="trigno-operations" id="tan-1">tan-1</button>
-            </div> -->
+            </div>
           </div>
           <div class="dropdown">
           <div class="wrapper">
@@ -58,6 +58,7 @@
         <div class="dropdown-content">
           <button class="functions" id="floor">floor</button>
           <button class="functions" id="ceil">ceil</button>
+          <button class="functions" id="rand">rand</button>
         </div>
         </div>
       </div>
