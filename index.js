@@ -54,3 +54,4 @@ else{
     console.log("elese")
 }
 
+//adding to check internet
