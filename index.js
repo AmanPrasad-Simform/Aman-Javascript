@@ -61,7 +61,7 @@ function myMove() {
     clearInterval(id);
     id = setInterval(frame, 2);
     function frame() {
-        if (pos == 350) {
+        if (pos == 250) {
             clearInterval(id);
             flag = true
             flagtrue()
@@ -77,7 +77,6 @@ function myMove() {
         var flagbtn = document.getElementById("flagbtn")
         flagbtn.style.visibility = "visible";
         redboxanimation()
-        home()
     }
 }
 
@@ -101,8 +100,36 @@ function redboxanimation(){
     },100)
     redbox.style.transition = "ease"
 }
-function home(){
-    var home_content = document.getElementsByClassName("text1")
-    home_content.style.transition = " 2s ease"
-}
 
+const aman = "myteam"
+function scrollElement(id){
+   window.scroll(0, Position(document.getElementById(id)));
+    }
+
+// const navbarht = document.querySelector(".navbar")
+
+// var ht = navbarht.offsetHeight;
+//    function Position(obj){
+//     var currenttop = 0;
+//     if (obj.offsetParent){
+//      do {
+//       currenttop += obj.offsetTop;
+//     }while ((obj = obj.offsetParent));
+//      return [currenttop-ht];
+//     }
+//    }
+   
+//    const links = document.querySelectorAll(".nav-link")
+//    for(const value of links){
+//     console.log(value.getAttribute("data-custom"),"GAGGGAGAAG")
+//     value.addEventListener("click",()=>{
+//         console.log(value.getAttribute("data-custom"))
+//         scrollElement(value.getAttribute("data-custom"))
+//     })
+//    }
+console.log(document.querySelectorAll(".nav-item[data-custom]"),)
+   document.querySelectorAll('.nav-link[data-custom]').forEach(element => {
+    element.addEventListener('click', function (event) {
+        document.getElementById(this.getAttribute('data-custom')).scrollIntoView({ behavior: "smooth", inline: "nearest" });
+    });
+});

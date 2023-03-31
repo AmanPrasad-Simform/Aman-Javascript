@@ -13,7 +13,7 @@
 }
 .slider .slider-item img {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     height: auto;
 }
 /* Navigation control styles */
@@ -61,27 +61,57 @@
 }
 
 
-#home{
-    margin-top: 55px;
+.coll > button:active .aman{
+    color: black;
 }
+.home-content{
+    color: white;
+    display: block;
+    text-align: center;
+}
+.centerr{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+.hello:hover{
+    color: yellow;
+}
+.text1:hover{
+    color:yellow;
+}
+.text1:focus {     
+    background-color:blue;    
+}
+  .text1{
+    font-size: 40px;
+  }
+#a-red{
+    color: red;
+    text-decoration: none;
+  }
 #myContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   position: relative;
   margin: 20px;
 }
-
 #flagbtn{
     width: 400px;
-    
+
 }
 #flagbtn > img{
-    height: 80px;
-    width: 80px;
-    
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+}
+#flagbtn img:hover{
+    scale: 1.1;
+    transition: ease;
 }
 #myAnimation {
     width: 50px;
@@ -89,22 +119,6 @@
     position: absolute;
     background-color: red;
 }
-.home-content{
-    color: white; 
-    top: 50%;
-    left: 50%;
-    position: absolute;
-}
-.text1:hover{
-    color:yellow;
-    transition: 0.3s;
-
-    /* transform:scale(1.6)  */
-  }
-  #a-red{
-    color: red;
-    text-decoration: none;
-  }
 .icon-img,.scrolltopbtn{
     transform: rotate(-90deg);
     border-radius: 50px;
@@ -118,7 +132,6 @@
     margin: 0;
     padding: 0;
 }
-
 .centered {
     font-size: 20px;
     font-weight: 600;
@@ -132,9 +145,15 @@
   }
 
 #projects{
-    margin-top: 100px;
+    padding-top: 60px;
 }
-
+#myteams section{
+    margin-top: 60px;
+}
+#projects h1{
+    text-align: center;
+    margin: 10px;
+}
 .scrollbtn {
     display: flex;
     flex-direction: row-reverse;
@@ -142,14 +161,16 @@
     bottom: 10px;
     right:  10px;
 }
-img:hover{
-    /* scale: 1.1; */
-    transition: ease;
-}
+
 .socials i{
     cursor: pointer;
+    height: 20px;
+    width: 20px;
 }
 
 .navbar{
     background-image: linear-gradient(red,black);
+}
+.nav-link{
+    cursor: pointer;
 }
