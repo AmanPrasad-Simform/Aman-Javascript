@@ -70,13 +70,38 @@ function myMove() {
             pos++;
             elem.style.top = pos + 'px';
             elem.style.left = pos + 'px';
-            console.log("elsseee", flag)
         }
     }
     function flagtrue() {
         var flagbtn = document.getElementById("flagbtn")
         flagbtn.style.visibility = "visible";
         redboxanimation()
+    }
+}
+
+let elem = document.querySelectorAll(".myBar");
+let i = 0;
+function move() {
+    if (i == 0) {
+        i = 1;
+        for (value of elem) {
+            var widd = 10;
+            var id1 = setInterval(progress, 10);
+            function progress() {
+                if (widd >= 100) {
+                    clearInterval(id1);
+                    i = 0;
+                } else {
+                    elem.forEach(value => {
+                        const widd = value.getAttribute("data-status");
+                        value.style.width = widd + "%";
+                        value.innerHTML = widd + "%";
+                        value.style.transition = 'all 1s ease-in'
+                    });
+                }
+            }
+
+        }
     }
 }
 
@@ -93,43 +118,67 @@ function scrollToTop() {
 }
 
 
-function redboxanimation(){
+function redboxanimation() {
     var redbox = document.getElementById("myAnimation")
-    setTimeout(()=>{
+    setTimeout(() => {
         redbox.style.visibility = "hidden";
-    },100)
+    }, 100)
     redbox.style.transition = "ease"
 }
 
-const aman = "myteam"
-function scrollElement(id){
-   window.scroll(0, Position(document.getElementById(id)));
+function scrollElement(id) {
+    window.scroll(0, Position(document.getElementById(id)));
+}
+
+const navbarht = document.querySelector(".navbar")
+
+var ht = navbarht.offsetHeight;
+function Position(obj) {
+    var currenttop = 0;
+    if (obj.offsetParent) {
+        do {
+            currenttop += obj.offsetTop;
+        } while ((obj = obj.offsetParent));
+        return [currenttop - ht];
+    }
+}
+
+const links = document.querySelectorAll(".nav-link")
+for (const value of links) {
+    console.log(value.getAttribute("data-custom"), "GAGGGAGAAG")
+    value.addEventListener("click", () => {
+        console.log(value.getAttribute("data-custom"))
+        scrollElement(value.getAttribute("data-custom"))
+    })
+}
+
+//    document.querySelectorAll('.nav-link[data-custom]').forEach(element => {
+//     element.addEventListener('click', function (event) {
+//         document.getElementById(this.getAttribute('data-custom')).scrollIntoView({ behavior: "smooth", inline: "nearest" });
+//     });
+// });
+
+const tabcontent = document.querySelectorAll(".tab-contents");
+const toggleTabs = document.querySelector(".tab-titles");
+toggleTabs.addEventListener("click", (e) => {
+
+    const removeClass = toggleTabs.children;
+
+  if (e.target.children.length === 0) {
+
+    for (let element of removeClass) {
+      element.classList.remove("active-link");
     }
 
-// const navbarht = document.querySelector(".navbar")
-
-// var ht = navbarht.offsetHeight;
-//    function Position(obj){
-//     var currenttop = 0;
-//     if (obj.offsetParent){
-//      do {
-//       currenttop += obj.offsetTop;
-//     }while ((obj = obj.offsetParent));
-//      return [currenttop-ht];
-//     }
-//    }
-   
-//    const links = document.querySelectorAll(".nav-link")
-//    for(const value of links){
-//     console.log(value.getAttribute("data-custom"),"GAGGGAGAAG")
-//     value.addEventListener("click",()=>{
-//         console.log(value.getAttribute("data-custom"))
-//         scrollElement(value.getAttribute("data-custom"))
-//     })
-//    }
-console.log(document.querySelectorAll(".nav-item[data-custom]"),)
-   document.querySelectorAll('.nav-link[data-custom]').forEach(element => {
-    element.addEventListener('click', function (event) {
-        document.getElementById(this.getAttribute('data-custom')).scrollIntoView({ behavior: "smooth", inline: "nearest" });
+    tabcontent.forEach((element) => {
+      element.classList.remove("active-tab");
     });
+    document
+      .getElementById(`${e.target.innerText.toLowerCase()}`)
+      .classList.add("active-tab");
+      
+    e.target.classList.add("active-link");
+  } else {
+    return;
+  }
 });
