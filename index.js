@@ -184,7 +184,7 @@ function handleClickEvent(btn) {
     case "sin":
       inputString = "sin(";
       if (rdFlag == false) {
-        operator = "Math.sin(deg*" 
+        operator = `Math.sin(${deg}*`
       }
       else
         operator = "Math.sin("
@@ -192,7 +192,7 @@ function handleClickEvent(btn) {
     case "cos":
       inputString = "cos(";
       if (rdFlag == false) {
-        operator = "Math.cos(deg*"
+        operator = `Math.cos(${deg}*`
       }
       else
         operator = "Math.cos("
@@ -200,7 +200,7 @@ function handleClickEvent(btn) {
     case "tan":
       inputString = "tan(";
       if (rdFlag == false) {
-        operator = "Math.tan(deg*"
+        operator = `Math.tan(${deg}*`
       }
       else
         operator = "Math.tan("
@@ -209,7 +209,7 @@ function handleClickEvent(btn) {
     case "sin-1":
       inputString = "sin-1(";
       if (rdFlag == false) {
-        operator = "Math.asin(deg*"
+        operator = `Math.asin(${deg}*`
       }
       else
         operator = "Math.asin("
@@ -217,7 +217,7 @@ function handleClickEvent(btn) {
     case "cos-1":
       inputString = "cos-1(";
       if (rdFlag == false) {
-        operator = "Math.acos(deg*"
+        operator = `Math.acos(${deg}*`
       }
       else
         operator = "Math.acos("
@@ -225,7 +225,7 @@ function handleClickEvent(btn) {
     case "tan-1":
       inputString = "tan-1(";
       if (rdFlag == false) {
-        operator = "Math.atan(deg*"
+        operator = `Math.atan(${deg}*`
       }
       else
         operator = "Math.atan("
@@ -253,7 +253,7 @@ function handleClickEvent(btn) {
 
     case "pie":
       inputString = `${inputString}π`; 
-      operator = "*Math.PI";
+      operator = "Math.PI";
       break;
 
     case "e":
