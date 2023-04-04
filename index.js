@@ -14,11 +14,11 @@ let rdFlag = true
 radian.addEventListener("click", () => {
   if (rdFlag == true) {
     radian.textContent = newText
-    rdFlag = false
+    rdFlag = !rdFlag
   }
   else {
     radian.textContent = initialText
-    rdFlag = true
+    rdFlag = !rdFlag
   }
 });
 
