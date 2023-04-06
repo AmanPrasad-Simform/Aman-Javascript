@@ -93,7 +93,6 @@ function boxAnimation() {
 function animateBars() {
     for (barItem of bars) {
         width = barItem.getAttribute("data-status");
-        console.log('in for each loop ==== ', barItem, '=== width ==== ', width);
         barItem.style.width = width + "%";
         barItem.innerHTML = width + "%";
         barItem.style.transition = 'all 1s ease-in'
@@ -103,7 +102,6 @@ function animateBars() {
 // Function to reset the homepage animation
 function resetAnimationBars() {
     document.querySelectorAll(".myBar").forEach((element) => {
-        console.log('Element Style', element);
         element.style = { width: '10%' }
         element.innerHTML = '10%';
     });

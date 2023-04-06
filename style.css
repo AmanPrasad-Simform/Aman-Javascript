@@ -69,7 +69,9 @@ body{
     }
 }
 
-
+.modal-title{
+  color: var(--primary-color);
+}
 .coll > button:active .aman{
     color: black;
 }
@@ -155,10 +157,8 @@ body{
     justify-content: center;
     align-items:left ;
     color: white;
-    /* row-gap: 20px; */
   }
   .myBar {
-    /* display: flex; */
     border-radius: 50px;
     width: 10%;
     height: 20px;
@@ -212,9 +212,6 @@ h5:hover {
     width: 20px;
 }
 
-/* .navbar{
-    background-image: linear-gradient(red,black);
-} */
 .nav-link{
     cursor: pointer;
 }
