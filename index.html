@@ -17,7 +17,7 @@
     </div>
   </nav>
 
-  <section class="input-fields">
+  <section id="input-fields">
     <div class="form-floating mb-3 "autocomplete="off">
       <input type="text" class="form-control" id="pid" placeholder="ProductID">
       <label for="pid">Product ID</label>
@@ -39,8 +39,47 @@
       <label for="pdesc">Description</label>
     </div>
     <button class="btn btn-primary" type="submit" onclick="submit()">Button</button>
+    <button class="btn btn-primary" type="reset">Reset</button>
   </section>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update your product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalUpdate">
+        <form>
+          <div class="form-floating mb-3 "autocomplete="off">
+            <input type="text" class="form-control" id="pid" placeholder="ProductID">
+            <label for="pid">Product ID</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="pname" placeholder="Product Name">
+            <label for="pname">Product Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="pprice" placeholder="Product Price">
+            <label for="pprice">Price</label>
+          </div>
+          <div class="mb-3">
+            <label for="pimage" class="form-label">Upload Image</label>
+            <input class="form-control" id="pimage" type="file">
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="pdesc" placeholder="Description">
+            <label for="pdesc">Description</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="edit()">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="row row-cols-1 row-cols-md-3 g-4 " id="product-items" >
   </div>
