@@ -3,7 +3,6 @@ const uniqueID = d.getTime()
 
 let localStorage_array = JSON.parse(localStorage.getItem("crud")) || []
 
-
 let pid = document.querySelector("#input-fields #pid");
 let pname = document.getElementById("pname");
 let pprice = document.getElementById("pprice");
@@ -17,47 +16,25 @@ let pprice_update = document.querySelector(`#modalUpdate #pprice`)
 let pimage_update = document.querySelector(`#modalUpdate #pimage`)
 let pdesc_update = document.querySelector(`#modalUpdate #pdesc`)
 
+
 const submit = () => {
 
-    console.log("on submit")
-    let dataEntered = retrieveData();   //data_object is getting stored
+    const dataEntered = retrieveData();   //data_object is getting stored
 
     localStorage_array.push(dataEntered)    // pushing all objects in an array
 
     setDataToLocalStorage(localStorage_array)   // We are setting the array data in the localStorage
 
-    let localStorage_getData = getDataFromLocalStorage(localStorage_array)  // We are getting the data from the localStorage
+    let localStorage_getData = getDataFromLocalStorage()  // We are getting the data from the localStorage
 
     insertProductData(localStorage_getData) // Calling the insert Product function to add the products in the DOM
-    
+
     reset();
 }
 
-const edit = () => {
-    // let newData = editValue()
-    
-    let tempData = {
-        pid: pid_update.value,
-        pname: pname_update.value,
-        pprice: pprice_update.value,
-        pimage: pimage_update.value,
-        pdesc: pdesc_update.value
-    }
-
-    localStorage_array.push(tempData)
-    const localID = pid
-    console.log(localID,"LLOOOO")
-    localStorage_array = localStorage_array.filter((element)=>{
-        console.log(element,"elelellelele")
-        return element.pid!=localID
-    })
-    setDataToLocalStorage(localStorage_array)
-    let localStorage_getData = getDataFromLocalStorage(localStorage_array)
-    insertProductData(localStorage_getData)
-}
 
 const reset = () => {
-    console.log("im called")
+
     pid.value = "";
     pname.value = "";
     pprice.value = "";
@@ -91,9 +68,8 @@ const setDataToLocalStorage = (localStorage_array) => {
 const getDataFromLocalStorage = () => {
 
     //getting data from the LS
-    let ls_getData = JSON.parse(localStorage.getItem("crud"))
-    console.log(ls_getData, "ls_getData")
-    return ls_getData
+    const localStorage_getData = JSON.parse(localStorage.getItem("crud"))
+    return localStorage_getData
 }
 
 
@@ -102,15 +78,12 @@ const insertProductData = (localStorage_getData) => {
     let product_items = document.getElementById("product-items")
     product_items.innerHTML = ""
 
-    localStorage_getData.forEach(element =>  {
+    localStorage_getData.forEach(element => {
 
-        if(element.pid == ""){
-            element.pid = uniqueID;
-        }
 
         let dynamicProduct = document.createElement("div");
 
-        dynamicProduct.innerHTML += `<div class="col">
+        dynamicProduct.innerHTML += `<div class="col" id="productData">
         <div class="card">
         <img class="card-img-top" src="${element.pimage}" alt="Card image cap">
         <div class="card-body">
@@ -118,56 +91,58 @@ const insertProductData = (localStorage_getData) => {
         <h4 class="card-title" id="pname">${element.pname}</h4>
         <p class="card-text" id="pdesc">${element.pdesc}</p>
         <a href="#" class="btn btn-primary" id="pprice">${element.pprice}</a>
-        <button type="button" class="btn btn-success" data-custom-id=${element.pid} onclick="updateProduct(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
-        <button type="button" class="btn btn-danger" data-custom-id=${element.pid} onclick="deleteProduct(this)">Delete</button>
+        <button type="button" class="btn btn-success" data-custom-id=${element.pid} onclick="updateProduct('${element.pid}')" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+        <button type="button" class="btn btn-danger" data-custom-id=${element.pid} onclick="deleteProduct('${element.pid}')">Delete</button>
         </div>
         </div>
         </div>`
-        
+
         product_items.append(dynamicProduct);
     })
-    localStorage.setItem("crud",JSON.stringify(localStorage_array))
+    localStorage.setItem("crud", JSON.stringify(localStorage_array))
 }
-insertProductData(localStorage_array)
+// To show the product details for the first time
+window.onload = insertProductData(localStorage_array)
 
-const deleteProduct = (e) => {
 
-    const pid = e.getAttribute("data-custom-id")
-    console.log(pid,"ppp")
-    localStorage_array = localStorage_array.filter((element)=>{
-        return element.pid!=pid
+const deleteProduct = (id) => {
+    localStorage_array = localStorage_array.filter((element) => {
+        return element.pid != id
     })
-    console.log(localStorage_array,"lllll")
-    localStorage.setItem("crud",JSON.stringify(localStorage_array))
+    localStorage.setItem("crud", JSON.stringify(localStorage_array))
     insertProductData(localStorage_array)
 }
 
-const updateProduct = (e) => {
-    const pid = e.getAttribute("data-custom-id") 
-    console.log(pid,"lklkkkkkkkk")
-    const dataToBeUpdate = localStorage_array.filter(element=>{
-        if(element.pid == pid){
-            return element
+const updateProduct = (id) => {
+    const productToBeUpdate = localStorage_array.find(product => {
+        if (product.pid == id) {
+            return product
         }
     })
-    editValue(dataToBeUpdate)
-    return dataToBeUpdate[0]
+    const index = localStorage_array.map(item => item.pid).indexOf(id);
+    sessionStorage.setItem("index", JSON.stringify(index))
+    editValue(productToBeUpdate)
 }
 
-const editValue = (dataToBeUpdate)=> {
+const editValue = (productToBeUpdate) => {
+    pid_update.value = productToBeUpdate.pid,
+        pname_update.value = productToBeUpdate.pname,
+        pprice_update.value = productToBeUpdate.pprice,
+        pdesc_update.value = productToBeUpdate.pdesc
+}
 
-    pdesc_update.value = "ooooooo",
-    pid_update.value = "ppppppppp",
-    pname_update.value = 'pppppp',
-    pprice_update.value = "ppppppppp"
-    // pimage_update.value = "ppp"
-    
-    let data_object1 = {
-        pid: pid_update.value,
+const edit = () => {
+    const index = JSON.parse(sessionStorage.getItem("index"))
+    const tempData = {
         pname: pname_update.value,
         pprice: pprice_update.value,
         pimage: pimage_update.value,
         pdesc: pdesc_update.value
     }
-    return data_object1
-}
+    localStorage_array.splice(index, 1, tempData)
+    setDataToLocalStorage(localStorage_array)
+    const localStorage_getData = getDataFromLocalStorage(localStorage_array)
+    insertProductData(localStorage_getData)
+};
+
+
