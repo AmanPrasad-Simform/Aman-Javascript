@@ -1,0 +1,47 @@
+
+#filter-container,#sorting-container{
+ width: 100%;
+ display: flex;
+justify-content: center;
+align-items:center ;
+}
+
+#filter-container > select, #filter-container > input, #sorting-container > select {
+    width: 15%;
+    min-width: 100px;
+}
+#sorting-container > button {
+    min-width: 70px;
+}
+#input-fields{
+    margin-top: 60px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-wrap: nowrap;
+}
+.PMS-short{
+    display: none;
+}
+.card{
+    height: 100%;
+}
+.card-body{
+    height: 380px ;
+    overflow-y: auto;
+}
+.card-column{
+    max-height: 380px;
+}
+
+
+@media screen and (max-width:500px) {
+    .PMS-full {
+        display: none;
+    }    
+    .PMS-short{
+        display: block;
+    }
+}
