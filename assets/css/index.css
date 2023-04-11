@@ -1,3 +1,29 @@
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #eaddee;
+}
+
+/* navbar */
+.navbar{
+    background-color: #BA90C6;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-wrap: nowrap;
+}
+.addProductGif{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 80px; */
+}
+.addProductGif > h2{
+    margin-top: 40px;
+    text-align: center;
+}
 
 #filter-container,#sorting-container{
  width: 100%;
@@ -14,28 +40,16 @@ align-items:center ;
     min-width: 70px;
 }
 #input-fields{
-    margin-top: 60px;
-}
-.navbar{
     display: flex;
-    justify-content: space-evenly;
-    align-items:center;
-    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
 }
 .PMS-short{
     display: none;
 }
-.card{
-    height: 100%;
-}
-.card-body{
-    height: 380px ;
-    overflow-y: auto;
-}
-.card-column{
-    max-height: 380px;
-}
-
 
 @media screen and (max-width:500px) {
     .PMS-full {
@@ -44,4 +58,72 @@ align-items:center ;
     .PMS-short{
         display: block;
     }
+}
+.card{
+    height: 100%;
+}
+.card-body{
+    height: 340px ;
+    overflow-y: auto;
+}
+.card-column{
+    max-height: 340px;
+}
+#form-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    width: 55%;
+}
+input{
+    margin-bottom: 25px;
+}
+input ~ img{
+     height: 110px;
+     width: 100px;
+}
+.nothingToSeeImg{
+    width:50%;
+    height:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imageGroup{
+    margin-bottom: 10px;
+}
+.imageGroup > input, #pprice, #myInput {
+    height: 38px;
+}
+.form-control{
+    height: 60px;
+}
+.formbtn{
+    border: 1px solid black;
+    margin-right: 2px;
+    transition: transform 0.4s;
+}
+.formbtn:hover{
+    border: 1px solid black;
+    transform: translateY(-10px);
+}
+.sortBtn{
+    border: 1px solid black;
+    margin-right: 2px;
+}
+
+@media screen and (max-width:900px) {
+    #form-field{
+        width: 70%;
+    }    
+    .nothingToSeeImg{
+        width: 60%;
+        height: 40%
+    }
+}
+@media screen and (max-width:650px) {
+    #form-field{
+        width: 80%;
+    }    
 }
