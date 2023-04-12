@@ -16,15 +16,16 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script defer src="/assets/js/index.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="images/amazon.webp" type="image/x-icon" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script defer src="/assets/js/index.js"></script>
     <link rel="stylesheet" href="/assets/css/index.css" />
-    <link rel="shortcut icon" href="amazon.webp" type="image/x-icon" />
     <title>CRUD</title>
   </head>
 
@@ -32,11 +33,18 @@
     <!-- Navbar of the CRUD -->
     <nav class="navbar navbar-expand-lg w-100">
       <a class="navbar-brand fw-bold PMS-full" href="/index.html"
-        ><img class="mx-2" src="amazon.webp" style="height: 40px; width: 40px" />Product
-        Management System</a
+        ><img
+          class="mx-2"
+          src="/images/amazon.webp"
+          style="height: 40px; width: 40px"
+        />Product Management System</a
       >
       <a class="navbar-brand fw-bold PMS-short" href="/index.html"
-        ><img class="mx-2" src="amazon.webp" style="height: 40px; width: 40px" />PMS</a
+        ><img
+          class="mx-2"
+          src="/images/amazon.webp"
+          style="height: 40px; width: 40px"
+        />PMS</a
       >
       <div class="view-product">
         <ul class="navbar-nav">
@@ -49,23 +57,20 @@
       </div>
     </nav>
 
+    <!-- Title Section -->
     <section class="addProduct">
       <div class="addProductGif">
-        <!-- <img
-        src="addProduct.gif"
-        style="width: 150px;height: 120px;"
-      /> -->
-        <h2 class="lead fw-bold">Create Product</h2>
+        <h2 class="lead fw-bold text-center">Create Product</h2>
       </div>
     </section>
 
     <!-- Field section to add the product -->
-    <section id="input-fields" >
-      <form id="form-field" action="/pages/view.html">
+    <section id="input-fields">
+      <form id="form-field">
         <div class="input-group mx-auto">
           <input
             type="text"
-            class="form-control fw-bold"
+            class="form-control main-form h-form fw-bold"
             id="pname"
             placeholder="Product Name"
             required
@@ -78,7 +83,7 @@
           <input
             type="number"
             placeholder="Product Price"
-            class="form-control fw-bold "
+            class="form-control main-form fw-bold"
             id="pprice"
             required
           />
@@ -88,21 +93,18 @@
         </div>
         <div class="imageGroup">
           <input
-          class="form-control mb-1"
-          id="pimage"
+            class="form-control mb-1"
+            id="pimage"
             type="file"
             placeholder="Upload Image"
             onchange="PreviewImage()"
           />
-          <img
-            id="uploadPreview"
-            src="empty-bin.gif"
-          />
+          <img id="uploadPreview" src="/images/empty-bin.gif" />
         </div>
         <div class="input-group mx-auto">
           <input
             type="text"
-            class="form-control fw-bold text-truncate"
+            class="form-control main-form h-form fw-bold text-truncate"
             id="pdesc"
             placeholder="Description"
           />
@@ -114,103 +116,5 @@
       </form>
     </section>
 
-    <!-- Edit section (modal) -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Update your product
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body" id="modalUpdate">
-            <form>
-              <div class="input-group mb-3" autocomplete="off">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="pid"
-                  placeholder="ProductID"
-                  readonly
-                />
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="pname"
-                  placeholder="Product Name"
-                />
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="pprice"
-                  placeholder="Product Price"
-                />
-              </div>
-              <div class="mb-3">
-                <input
-                  class="form-control"
-                  id="pimage_update"
-                  type="file"
-                  placeholder="Upload Image"
-                  onchange="UpdatePreviewImage()"
-                />
-                <img
-                  id="uploadPreview-update"
-                  style="width: 100px; height: 100px"
-                />
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="pdesc"
-                  placeholder="Description"
-                />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              onclick="edit()"
-              id="editBtn"
-            >
-              Update
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section to display cards (products) -->
-    <section
-      class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4"
-      id="product-items"
-    ></section>
   </body>
 </html>

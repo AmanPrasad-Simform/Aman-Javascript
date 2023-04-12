@@ -22,19 +22,35 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="../images/amazon.webp" type="image/x-icon" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script defer src="/assets/js/view.js"></script>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <title>CRUD</title>
   </head>
   <body>
-
-    
-    <nav class="navbar navbar-expand-lg w-100">
+    <!-- Navbar of the CRUD (View page)-->
+    <nav class="navbar navbar-expand-lg w-100 fixed-top">
       <a class="navbar-brand fw-bold PMS-full" href="/index.html"
-        ><img class="mx-2" src="../amazon.webp" style="height: 40px; width: 40px" />Product
-        Management System</a
+        ><img
+          class="mx-2"
+          src="../images/amazon.webp"
+          style="height: 40px; width: 40px"
+        />Product Management System</a
       >
       <a class="navbar-brand fw-bold PMS-short" href="/index.html"
-        ><img class="mx-2" src="../amazon.webp" style="height: 40px; width: 40px" />PMS</a
+        ><img
+          class="mx-2"
+          src="../images/amazon.webp"
+          style="height: 40px; width: 40px"
+        />PMS</a
       >
       <div class="view-product">
         <ul class="navbar-nav">
@@ -45,15 +61,12 @@
           </li>
         </ul>
       </div>
-
     </nav>
 
-
-    <!-- Filter section  -->
-    <section id="filter-container">
+    <!-- FILTER section  -->
+    <section id="filter-container" class="">
       <select class="form-select mt-3 mb-3" id="select-container">
         <option data-custom="pid">ProductID</option>
-        <option data-custom="pprice">Product Price</option>
         <option data-custom="pname">Product Name</option>
       </select>
       <input
@@ -66,7 +79,7 @@
       />
     </section>
 
-    <!-- Sort section  -->
+    <!-- SORTING section  -->
     <section id="sorting-container" class="mb-3">
       <select class="form-select" id="sort-container">
         <option data-custom="pid">ProductID</option>
@@ -74,24 +87,114 @@
         <option data-custom="pprice">Product Price</option>
       </select>
       <button
-      type="text"
-      class="btn fw-bold bg-white" 
-      id="sort"
-      onclick="sort()"
-      placeholder="Search for names.."
-      title="Type in a name"
-    >
-      Sort
-    </button>
+        type="text"
+        class="btn fw-bold bg-white"
+        id="sort"
+        onclick="sort()"
+        placeholder="Search for names.."
+        title="Type in a name"
+      >
+        Sort
+      </button>
     </section>
 
-    <!-- Section to display processed products -->
+    <!-- Section to display Products -->
     <section
-      class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4"
+      class="mt-5 row px-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5"
       id="product-items"
     ></section>
 
-
-    <script defer src="/assets/js/view.js"></script>
+    <!-- Edit section (modal) -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Update your product
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalUpdate">
+            <form>
+              <div class="input-group mb-3" autocomplete="off">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pid"
+                  placeholder="ProductID"
+                  readonly
+                />
+              </div>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control h-form"
+                  id="pname"
+                  placeholder="Product Name"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="pprice"
+                  placeholder="Product Price"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  class="form-control"
+                  id="pimage_update"
+                  type="file"
+                  placeholder="Upload Image"
+                  onchange="UpdatePreviewImage()"
+                />
+                <img
+                  id="uploadPreview-update"
+                  style="width: 100px; height: 100px"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control h-form"
+                  id="pdesc"
+                  placeholder="Description"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              onclick="edit()"
+              id="editBtn"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
