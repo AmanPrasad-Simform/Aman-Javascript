@@ -1,5 +1,5 @@
 
-# Single Page Application 
+# Single Page Application : 
 
 In this practical I have made Single Page Application using JavaScript. 
 
