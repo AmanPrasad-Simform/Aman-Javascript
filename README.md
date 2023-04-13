@@ -5,6 +5,10 @@ In this practical I have made Single Page Application using JavaScript.
 
 In this Single Page Application it contains four tab : Home, Portfolio, Services and About us. And here clicking on any tab, application will scroll to that particular section.
 
+## Demo
+
+https://delicate-biscuit-661fdd.netlify.app/
+
 ## Screenshots :
 
 ![](img/SPa.png)
