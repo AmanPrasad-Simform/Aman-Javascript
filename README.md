@@ -1,5 +1,5 @@
 
-# CRUD Opeartion 
+# Single Page Application 
 
 In this practical I have made Single Page Application using JavaScript. 
 
@@ -7,7 +7,7 @@ In this Single Page Application it contains four tab : Home, Portfolio, Services
 
 ## Demo
 
-https://delicate-biscuit-661fdd.netlify.app/
+https://bejewelled-taffy-a2924c.netlify.app/
 
 ## Screenshots :
 
